@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arunava Ghosh — Senior Software Engineer</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #0a0a0f;
+            --surface: #111118;
+            --card: #16161f;
+            --border: rgba(255, 255, 255, 0.08);
+            --accent: #7c6dfa;
+            --accent2: #3ecfb0;
+            --text: #f0eff8;
+            --muted: #8b8a9e;
+            --tag-bg: rgba(124, 109, 250, 0.12);
+            --tag-text: #a99fff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 5%;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #7c6dfa, #3ecfb0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-cta {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 0.55rem 1.3rem;
+            border-radius: 50px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            text-decoration: none;
+        }
+
+        .nav-cta:hover {
+            opacity: 0.85;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 7rem 5% 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 60% 50% at 80% 50%, rgba(124, 109, 250, 0.12) 0%, transparent 70%), radial-gradient(ellipse 40% 60% at 10% 80%, rgba(62, 207, 176, 0.07) 0%, transparent 60%);
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(62, 207, 176, 0.1);
+            color: var(--accent2);
+            border: 1px solid rgba(62, 207, 176, 0.25);
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent2);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: 0.3
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 5vw, 4.2rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #7c6dfa, #3ecfb0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-desc {
+            color: var(--muted);
+            font-size: 1.05rem;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            max-width: 480px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #7c6dfa, #5a4df0);
+            color: #fff;
+            border: none;
+            padding: 0.85rem 2rem;
+            border-radius: 50px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(124, 109, 250, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+            padding: 0.85rem 2rem;
+            border-radius: 50px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            background: rgba(124, 109, 250, 0.05);
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .avatar-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .avatar-card::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 30%;
+            right: 30%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #7c6dfa, #3ecfb0, transparent);
+            border-radius: 50%;
+        }
+
+        .avatar-ring {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            margin: 0 auto 1.2rem;
+            background: linear-gradient(135deg, #7c6dfa, #3ecfb0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #fff;
+            position: relative;
+        }
+
+        .avatar-ring::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 2px dashed rgba(124, 109, 250, 0.4);
+            animation: spin 12s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .avatar-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .avatar-title {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .avatar-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-lbl {
+            font-size: 0.7rem;
+            color: var(--muted);
+        }
+
+        section {
+            padding: 6rem 5%;
+        }
+
+        .section-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-tag {
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-sub {
+            color: var(--muted);
+            font-size: 1rem;
+            max-width: 560px;
+            line-height: 1.8;
+        }
+
+        .skills-section {
+            background: var(--surface);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .skill-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .skill-card:hover {
+            border-color: rgba(124, 109, 250, 0.4);
+            transform: translateY(-4px);
+        }
+
+        .skill-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+        }
+
+        .tech-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .chip {
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            padding: 0.25rem 0.7rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-family: 'DM Mono', monospace;
+        }
+
+        .exp-section {
+            background: var(--bg);
+        }
+
+        .timeline {
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent);
+        }
+
+        .exp-item {
+            padding-left: 2.5rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .exp-dot {
+            position: absolute;
+            left: -5px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 2px solid var(--bg);
+            box-shadow: 0 0 10px rgba(124, 109, 250, 0.6);
+        }
+
+        .exp-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .exp-company {
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .exp-period {
+            font-size: 0.8rem;
+            color: var(--muted);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.2rem 0.7rem;
+            border-radius: 50px;
+        }
+
+        .exp-role {
+            font-size: 0.9rem;
+            color: var(--accent2);
+            font-weight: 400;
+            margin-bottom: 0.8rem;
+        }
+
+        .exp-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.2rem;
+        }
+
+        .exp-card ul {
+            list-style: none;
+        }
+
+        .exp-card li {
+            color: var(--muted);
+            font-size: 0.9rem;
+            padding: 0.3rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .exp-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 0.75rem;
+        }
+
+        .exp-card li strong {
+            color: var(--text);
+        }
+
+        .metrics-section {
+            background: var(--surface);
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .metric-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        .metric-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #7c6dfa, #3ecfb0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .metric-label {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .services-section {
+            background: var(--bg);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: rgba(124, 109, 250, 0.5);
+            transform: translateY(-6px);
+        }
+
+        .service-glow {
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(124, 109, 250, 0.15), transparent);
+        }
+
+        .service-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            opacity: 0.06;
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            color: var(--accent);
+        }
+
+        .service-title {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-desc {
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 1.2rem;
+        }
+
+        .service-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .edu-section {
+            background: var(--surface);
+        }
+
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .edu-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+
+        .edu-inst {
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+
+        .edu-degree {
+            color: var(--accent2);
+            font-size: 0.88rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-period {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        .cta-section {
+            background: var(--bg);
+            text-align: center;
+            padding: 7rem 5%;
+        }
+
+        .cta-inner {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 0.7rem 1.4rem;
+            border-radius: 50px;
+            font-size: 0.88rem;
+            color: var(--text);
+            text-decoration: none;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .contact-chip:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 2rem 5%;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <img src="assets/img/profile-free.png" alt="AG Avatar" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; cursor: pointer;">
+        <ul class="nav-links">
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="mailto:ghosharunava57@gmail.com" class="nav-cta">Hire Me</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-text">
+                <div class="hero-badge"><span class="dot"></span>Available for freelance</div>
+                <h1>Building Scalable<br><span>Web Experiences</span><br>That Convert</h1>
+                <p class="hero-desc">Senior Software Engineer with 4+ years delivering full-stack applications — from
+                    cloud-native APIs to polished Angular & React frontends. Based in Kolkata, working with clients
+                    globally.</p>
+                <div class="hero-btns">
+                    <a href="mailto:ghosharunava57@gmail.com" class="btn-primary">✉ Get in Touch</a>
+                    <a href="https://drifted-coder.github.io/portfolio-website/" target="_blank" class="btn-outline">View
+                        Portfolio ↗</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="avatar-card">
+                    <div class="avatar-ring" style="background: none;">
+                        <img src="assets/img/profile-free.png" alt="AG Avatar" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; position: relative; z-index: 1;">
+                    </div>
+                    <div class="avatar-name">Arunava Ghosh</div>
+                    <div class="avatar-title">Senior Software Engineer</div>
+                    <div class="avatar-stats">
+                        <div class="stat-item">
+                            <div class="stat-num">4+</div>
+                            <div class="stat-lbl">Years Exp</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-num">35%</div>
+                            <div class="stat-lbl">API Boost</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-num">85%</div>
+                            <div class="stat-lbl">Test Cover</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills-section" id="skills">
+        <div class="section-inner">
+            <div class="section-tag">Technical Expertise</div>
+            <h2 class="section-title">Full-Stack Arsenal</h2>
+            <p class="section-sub">End-to-end development capabilities — from architecting cloud infrastructure to
+                crafting pixel-perfect interfaces.</p>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon" style="background:rgba(124,109,250,0.12);">⚛</div>
+                    <h3>Frontend Development</h3>
+                    <div class="tech-chips"><span class="chip">Angular</span><span class="chip">React</span><span
+                            class="chip">TypeScript</span><span class="chip">HTML5</span><span
+                            class="chip">CSS3</span><span class="chip">Bootstrap</span></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon" style="background:rgba(62,207,176,0.12);">⚙</div>
+                    <h3>Backend Development</h3>
+                    <div class="tech-chips"><span class="chip">Node.js</span><span class="chip">Express.js</span><span
+                            class="chip">Spring Boot</span><span class="chip">REST APIs</span><span class="chip">JWT /
+                            RBAC</span></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon" style="background:rgba(62,207,176,0.12);">🗄</div>
+                    <h3>Databases</h3>
+                    <div class="tech-chips"><span class="chip">MongoDB</span><span class="chip">PostgreSQL</span><span
+                            class="chip">MySQL</span><span class="chip">Query Optimization</span><span
+                            class="chip">Indexing</span></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon" style="background:rgba(239,163,39,0.12);">☁</div>
+                    <h3>Cloud & DevOps</h3>
+                    <div class="tech-chips"><span class="chip">AWS Lambda</span><span class="chip">API
+                            Gateway</span><span class="chip">S3</span><span class="chip">VPC</span><span
+                            class="chip">Docker</span><span class="chip">Kubernetes</span></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon" style="background:rgba(226,75,74,0.12);">🧪</div>
+                    <h3>Testing & QA</h3>
+                    <div class="tech-chips"><span class="chip">Jest</span><span class="chip">Mocha</span><span
+                            class="chip">Playwright</span><span class="chip">Automated Testing</span></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon" style="background:rgba(124,109,250,0.12);">🔧</div>
+                    <h3>Tools & Methods</h3>
+                    <div class="tech-chips"><span class="chip">Agile / Scrum</span><span class="chip">Git</span><span
+                            class="chip">Route53</span><span class="chip">Microservices</span><span
+                            class="chip">Caching</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="metrics-section">
+        <div class="section-inner">
+            <div class="section-tag">Impact by Numbers</div>
+            <h2 class="section-title">Results That Speak</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-num">35%</div>
+                    <div class="metric-label">API response time improvement through optimization & caching</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-num">40%</div>
+                    <div class="metric-label">Database load reduction via MongoDB schema optimization</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-num">85%</div>
+                    <div class="metric-label">Test coverage achieved with Jest & Mocha automated testing</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-num">500+</div>
+                    <div class="metric-label">Concurrent users supported on Angular & React applications</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="exp-section" id="experience">
+        <div class="section-inner">
+            <div class="section-tag">Work History</div>
+            <h2 class="section-title">Career Journey</h2>
+            <div class="timeline">
+                <div class="exp-item">
+                    <div class="exp-dot"></div>
+                    <div class="exp-meta"><span class="exp-company">Matrix Media Solutions Pvt. Ltd.</span><span
+                            class="exp-period">Apr 2026 – Present</span></div>
+                    <div class="exp-role">Senior Software Engineer</div>
+                    <div class="exp-card">
+                        <ul>
+                            <li>Building scalable, high-performance web apps using the <strong>MEAN stack</strong></li>
+                            <li>Designing efficient <strong>backend architectures</strong> and dynamic front-end
+                                interfaces</li>
+                            <li>Implementing <strong>secure authentication</strong> and seamless full-stack integration
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-dot"></div>
+                    <div class="exp-meta"><span class="exp-company">Centreax Technologies</span><span
+                            class="exp-period">Feb 2024 – Apr 2026</span></div>
+                    <div class="exp-role">Software Developer</div>
+                    <div class="exp-card">
+                        <ul>
+                            <li>Built & maintained large-scale <strong>Angular & React</strong> apps for 500+ concurrent
+                                users</li>
+                            <li>Improved API response times by <strong>35%</strong> through optimization & caching</li>
+                            <li>Reduced database load by <strong>40%</strong> via MongoDB schema optimization</li>
+                            <li>Achieved <strong>85% test coverage</strong> with Jest & Mocha automated testing</li>
+                            <li>Implemented <strong>JWT auth & RBAC</strong> across multiple enterprise applications
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-dot"></div>
+                    <div class="exp-meta"><span class="exp-company">DXC Technology</span><span class="exp-period">Sep
+                            2022 – Jan 2024</span></div>
+                    <div class="exp-role">Junior Software Engineer</div>
+                    <div class="exp-card">
+                        <ul>
+                            <li>Developed <strong>micro-UIs</strong>: Supplier-UI, Estimate-UI, Tender-Evaluation for
+                                eProcurement</li>
+                            <li>Built payment microservices using <strong>Spring Boot & MySQL</strong></li>
+                            <li>Specialized in <strong>Angular frontend</strong> with HTML, CSS, Bootstrap</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section" id="services">
+        <div class="section-inner">
+            <div class="section-tag">What I Offer</div>
+            <h2 class="section-title">Freelance Services</h2>
+            <p class="section-sub">Ready to take on your next project — from MVPs to enterprise-grade platforms.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-glow"></div>
+                    <div class="service-num">01</div>
+                    <div class="service-title">Full-Stack Web Applications</div>
+                    <p class="service-desc">End-to-end development with Angular or React frontends backed by
+                        Node.js/Express APIs and MongoDB or PostgreSQL.</p>
+                    <div class="service-tags"><span class="chip">Angular</span><span class="chip">React</span><span
+                            class="chip">Node.js</span><span class="chip">MongoDB</span></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-glow"></div>
+                    <div class="service-num">02</div>
+                    <div class="service-title">API Design & Optimization</div>
+                    <p class="service-desc">Architecture and optimization of RESTful APIs with authentication,
+                        validation, and up to 35% faster response times.</p>
+                    <div class="service-tags"><span class="chip">REST API</span><span class="chip">JWT</span><span
+                            class="chip">RBAC</span><span class="chip">Caching</span></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-glow"></div>
+                    <div class="service-num">03</div>
+                    <div class="service-title">Cloud-Native Deployment</div>
+                    <p class="service-desc">Deploy and scale on AWS with Lambda, API Gateway, S3, VPC & Route53.
+                        Containerized with Docker & Kubernetes.</p>
+                    <div class="service-tags"><span class="chip">AWS</span><span class="chip">Docker</span><span
+                            class="chip">Kubernetes</span></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-glow"></div>
+                    <div class="service-num">04</div>
+                    <div class="service-title">Database Architecture</div>
+                    <p class="service-desc">Schema design, query optimization, and indexing for MongoDB and PostgreSQL —
+                        up to 40% load reduction.</p>
+                    <div class="service-tags"><span class="chip">MongoDB</span><span class="chip">PostgreSQL</span><span
+                            class="chip">Indexing</span></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-glow"></div>
+                    <div class="service-num">05</div>
+                    <div class="service-title">Enterprise Frontend UI</div>
+                    <p class="service-desc">Pixel-perfect, responsive UIs with strong UX. Experienced in eProcurement,
+                        banking, and sales operation domains.</p>
+                    <div class="service-tags"><span class="chip">Angular</span><span class="chip">React</span><span
+                            class="chip">Bootstrap</span></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-glow"></div>
+                    <div class="service-num">06</div>
+                    <div class="service-title">Code Review & Consulting</div>
+                    <p class="service-desc">Performance audits, code quality reviews, and architecture consulting for
+                        your codebase or system design.</p>
+                    <div class="service-tags"><span class="chip">Audit</span><span class="chip">Testing</span><span
+                            class="chip">Architecture</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="edu-section">
+        <div class="section-inner">
+            <div class="section-tag">Education</div>
+            <h2 class="section-title">Academic Background</h2>
+            <div class="edu-grid">
+                <div class="edu-card">
+                    <div class="edu-inst">Indian Institute of Technology, Patna</div>
+                    <div class="edu-degree">M.Tech — Cloud Computing, Computer Engineering</div>
+                    <div class="edu-period">Jan 2026 – Jan 2028 (pursuing)</div>
+                </div>
+                <div class="edu-card">
+                    <div class="edu-inst">Heritage Institute of Technology</div>
+                    <div class="edu-degree">MCA — Computer Programming & Applications</div>
+                    <div class="edu-period">Sep 2020 – Jul 2022</div>
+                </div>
+                <div class="edu-card">
+                    <div class="edu-inst">University of Burdwan</div>
+                    <div class="edu-degree">BCA — Computer Programming</div>
+                    <div class="edu-period">2017 – 2020</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <div class="cta-inner">
+            <div class="section-tag" style="margin-bottom:1rem;">Let's Collaborate</div>
+            <h2>Ready to Build Something <span
+                    style="background:linear-gradient(135deg,#7c6dfa,#3ecfb0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Exceptional?</span>
+            </h2>
+            <p>Whether you need a scalable web app, cloud architecture, or API optimization — I bring senior-level
+                expertise and deliver results. Let's talk about your project.</p>
+            <div class="cta-links">
+                <a href="mailto:ghosharunava57@gmail.com" class="contact-chip">✉ Mail Me</a>
+                <a href="https://www.linkedin.com/in/arunava-ghosh-007b11172/?skipRedirect=true" target="_blank"
+                    class="contact-chip">in
+                    LinkedIn</a>
+                <a href="https://github.com/drifted-coder" target="_blank" class="contact-chip">⌥ GitHub</a>
+                <a href="https://drifted-coder.github.io/portfolio-website/" target="_blank" class="contact-chip">↗
+                    Portfolio Site</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© <span id="year"></span> Arunava Ghosh · Senior Software Engineer · Kolkata, West Bengal</p>
+        <p style="margin-top:0.5rem;font-size:0.78rem;">Angular · React · Node.js · MongoDB · AWS · Docker · Kubernetes
+        </p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
